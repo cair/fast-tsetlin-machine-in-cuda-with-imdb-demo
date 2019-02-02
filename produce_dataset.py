@@ -60,8 +60,6 @@ for phrase in vocabulary.keys():
 	bit_nr_phrase[bit_nr] = phrase
 	bit_nr += 1
 
-print len(phrase_bit_nr)
-
 # Create bit representation
 
 X_train = np.zeros((train_y.shape[0], len(phrase_bit_nr)), dtype=np.int32)
@@ -98,7 +96,7 @@ for i in xrange(test_y.shape[0]):
 	y_test[i] = test_y[i]
 
 
-print "SELECTING FEATURES"
+print("SELECTING FEATURES")
 SKB = SelectKBest(chi2, k=FEATURES)
 SKB.fit(X_train, y_train)
 
