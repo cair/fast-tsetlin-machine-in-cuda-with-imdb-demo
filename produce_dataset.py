@@ -39,8 +39,8 @@ for i in range(train_y.shape[0]):
 	for word_id in train_x[i]:
 		terms.append(id_to_word[word_id])
 	
-	for N in xrange(1,MAX_NGRAM+1):
-		grams = [terms[j:j+N] for j in xrange(len(terms)-N+1)]
+	for N in range(1,MAX_NGRAM+1):
+		grams = [terms[j:j+N] for j in range(len(terms)-N+1)]
 		for gram in grams:
 			phrase = " ".join(gram)
 			
