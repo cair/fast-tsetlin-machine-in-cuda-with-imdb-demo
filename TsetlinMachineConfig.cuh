@@ -3,3 +3,4 @@
 #define CLAUSES 10000
 #define BOOST_TRUE_POSITIVE_FEEDBACK 1
 #define STATE_BITS 8
+#define S 27.0
