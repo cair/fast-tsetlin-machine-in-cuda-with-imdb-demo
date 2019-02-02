@@ -1,6 +1,6 @@
 # Tsetlin Machine with Bitwise Operators Implemented in CUDA
 
-A CUDA implementation of the Tsetlin Machine (https://arxiv.org/abs/1804.01508) using bitwise operations for increased learning- and classification speed. On the IMDB dataset, parallell bit manipulation with CUDA leads to approx. 50 times faster learning compared to the vanilla Cython (https://github.com/cair/TsetlinMachine) and C (https://github.com/cair/TsetlinMachineC) implementations.
+A CUDA implementation of the Tsetlin Machine (https://arxiv.org/abs/1804.01508) using bitwise operations for increased learning- and classification speed. On the IMDB dataset, parallel bit manipulation with CUDA leads to approx. 50 times faster learning compared to the vanilla Cython (https://github.com/cair/TsetlinMachine) and C (https://github.com/cair/TsetlinMachineC) implementations.
 
 ## Bit-Based Representation and Manipulation of Patterns
 
