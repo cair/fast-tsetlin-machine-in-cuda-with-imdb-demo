@@ -34,7 +34,7 @@ word_to_id["<UNK>"] = 2
 id_to_word = {value:key for key,value in word_to_id.items()}
 
 vocabulary = {}
-for i in xrange(train_y.shape[0]):
+for i in range(train_y.shape[0]):
 	terms = []
 	for word_id in train_x[i]:
 		terms.append(id_to_word[word_id])
@@ -64,13 +64,13 @@ for phrase in vocabulary.keys():
 
 X_train = np.zeros((train_y.shape[0], len(phrase_bit_nr)), dtype=np.int32)
 y_train = np.zeros(train_y.shape[0], dtype=np.int32)
-for i in xrange(train_y.shape[0]):
+for i in range(train_y.shape[0]):
 	terms = []
 	for word_id in train_x[i]:
 		terms.append(id_to_word[word_id])
 
-	for N in xrange(1,MAX_NGRAM+1):
-		grams = [terms[j:j+N] for j in xrange(len(terms)-N+1)]
+	for N in range(1,MAX_NGRAM+1):
+		grams = [terms[j:j+N] for j in range(len(terms)-N+1)]
 		for gram in grams:
 			phrase = " ".join(gram)
 			if phrase in phrase_bit_nr:
@@ -81,13 +81,13 @@ for i in xrange(train_y.shape[0]):
 X_test = np.zeros((test_y.shape[0], len(phrase_bit_nr)), dtype=np.int32)
 y_test = np.zeros(test_y.shape[0], dtype=np.int32)
 
-for i in xrange(test_y.shape[0]):
+for i in range(test_y.shape[0]):
 	terms = []
 	for word_id in test_x[i]:
 		terms.append(id_to_word[word_id])
 
-	for N in xrange(1,MAX_NGRAM+1):
-		grams = [terms[j:j+N] for j in xrange(len(terms)-N+1)]
+	for N in range(1,MAX_NGRAM+1):
+		grams = [terms[j:j+N] for j in range(len(terms)-N+1)]
 		for gram in grams:
 			phrase = " ".join(gram)
 			if phrase in phrase_bit_nr:
