@@ -194,30 +194,21 @@ int main(void)
 
       for (int n = 0; n < 2; ++n) {
         printf("\nCLASS %d\n\n", n+1);
-        printf("TRUE POSITIVE: %d\n", mc_tm.true_positive[n]);
-        printf("FALSE POSITIVE: %d\n", mc_tm.false_positive[n]);
-        printf("TRUE NEGATIVE: %d\n", mc_tm.true_negative[n]);
-        printf("FALSE NEGATIVE: %d\n", mc_tm.false_negative[n]);
-        printf("\n");
-        printf("PRECISION: %.3f\n", 1.0 * mc_tm.true_positive[n] / (mc_tm.true_positive[n] + mc_tm.false_positive[n]));
-        printf("RECALL: %.3f\n", 1.0 * mc_tm.true_positive[n] / (mc_tm.true_positive[n] + mc_tm.false_negative[n]));
-        printf("ACCURACY: %.3f\n", 1.0 * (mc_tm.true_positive[n] + mc_tm.true_negative[n])/NUMBER_OF_TEST_EXAMPLES);
-
+              
         float precision = 1.0 * mc_tm.true_positive[n] / (mc_tm.true_positive[n] + mc_tm.false_positive[n]);
         printf("PRECISION: %.3f\n", precision);
         float recall = 1.0 * mc_tm.true_positive[n] / (mc_tm.true_positive[n] + mc_tm.false_negative[n]);
         printf("RECALL: %.3f\n", recall);
         float fscore = 2 * precision * recall / (precision + recall);
         printf("F-SCORE: %.3f\n", fscore);
-
-        printf("TRAINING TIME: %f\n", gpu_time_training);
-
-        printf("TESTING TIME: %f\n", gpu_time_testing);
-
+        
         fprintf(fp, "%d %d %d %d %d %d %d %.4f %.4f %.4f %f %f\n", e, i, n, mc_tm.true_positive[n], mc_tm.false_positive[n],
           mc_tm.true_negative[n], mc_tm.false_negative[n], precision, recall, fscore, gpu_time_training, gpu_time_testing);
         fflush(fp);
       }
+      printf("\n");
+      printf("TRAINING TIME: %f\n", gpu_time_training);
+      printf("TESTING TIME: %f\n", gpu_time_testing);
     }
   }
 
