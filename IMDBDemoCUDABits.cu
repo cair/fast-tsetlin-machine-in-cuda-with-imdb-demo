@@ -177,7 +177,7 @@ int main(void)
     printf("\nEXPERIMENT %d\n", e+1);
     mc_tm.initialize();
     for (int i = 0; i < EPOCHS; ++i) {
-      printf("\nEPOCH %d\n", i+1);
+      printf("\n##### EPOCH %d #####\n", i+1);
 
       clock_t start, end;
       double gpu_time_testing, gpu_time_training;
@@ -193,7 +193,7 @@ int main(void)
       gpu_time_testing = ((double) (end - start)) / CLOCKS_PER_SEC;
 
       for (int n = 0; n < 2; ++n) {
-        printf("\nCLASS %d\n\n", n+1);
+        printf("\n-- CLASS %d --\n\n", n+1);
               
         float precision = 1.0 * mc_tm.true_positive[n] / (mc_tm.true_positive[n] + mc_tm.false_positive[n]);
         printf("PRECISION: %.3f\n", precision);
